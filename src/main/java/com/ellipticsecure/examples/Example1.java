@@ -20,7 +20,6 @@ import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
-import sun.security.pkcs11.SunPKCS11;
 
 import java.math.BigInteger;
 import java.security.*;
@@ -122,8 +121,9 @@ public class Example1
         }
 
         // Create PKCS11 Provider
-        SunPKCS11 p = new SunPKCS11(configName);
-        Security.addProvider(p);
+        Provider p = Security.getProvider("SunPKCS11");
+        p = p.configure(configName);
+        Security.addProvider(p); 
 
         // Login to the eHSM
         KeyStore ks = KeyStore.getInstance("PKCS11", p);
