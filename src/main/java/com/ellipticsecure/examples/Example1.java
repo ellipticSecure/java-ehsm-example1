@@ -35,7 +35,7 @@ import java.util.Date;
  */
 public class Example1
 {
-    private static String configName = "src/main/resources/ehsm.cfg";
+    private static final String configName = "src/main/resources/ehsm.cfg";
 
     private static void eccDemo(Provider p, KeyStore ks, String algo, String curve) throws Exception {
         System.out.println("Testing curve "+ curve);

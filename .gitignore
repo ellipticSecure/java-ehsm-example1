@@ -1,4 +1,7 @@
 /.idea/
+/.settings/
+/.vscode/
 *.iml
 *.dat
 *.log
+/target/
